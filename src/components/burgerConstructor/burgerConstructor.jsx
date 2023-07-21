@@ -1,4 +1,6 @@
 import { Button } from "@ya.praktikum/react-developer-burger-ui-components";
+
+import { DragIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 // import { ConstructorElement } from "@ya.praktikum/react-developer-burger-ui-components";
 
 // const BurgerConstructor = () => {
@@ -40,11 +42,14 @@ const BurgerConstructor = () => {
           price={200}
           thumbnail={img}
         />
+        <div>
+        <DragIcon type="primary" />
         <ConstructorElement
           text="Краторная булка N-200i (верх)"
           price={50}
           thumbnail={img}
         />
+        </div>
         <ConstructorElement
           type="bottom"
           isLocked={true}
