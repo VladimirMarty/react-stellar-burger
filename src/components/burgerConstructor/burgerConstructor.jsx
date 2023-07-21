@@ -1,4 +1,4 @@
-
+import { Button } from "@ya.praktikum/react-developer-burger-ui-components";
 // import { ConstructorElement } from "@ya.praktikum/react-developer-burger-ui-components";
 
 // const BurgerConstructor = () => {
@@ -32,7 +32,7 @@ import { ConstructorElement } from "@ya.praktikum/react-developer-burger-ui-comp
 const BurgerConstructor = () => {
     const img = "https://code.s3.yandex.net/react/code/bun-02.png";
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+     <div> <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
         <ConstructorElement
           type="top"
           isLocked={true}
@@ -52,6 +52,10 @@ const BurgerConstructor = () => {
           price={200}
           thumbnail={img}
         />
+      </div>
+      <Button htmlType="button" type="primary" size="large">
+  Оформить заказ
+</Button>
       </div>
     )
   }
