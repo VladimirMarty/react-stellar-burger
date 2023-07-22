@@ -1,0 +1,13 @@
+.durgerStylesList {
+    display: grid;
+    grid-template-columns: repeat(2, 272px);
+    gap: 24px 32px;
+}
+
+.product {
+    height: 912px;
+    width: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-color: red;
+}

@@ -95,14 +95,18 @@ function App() {
     <div className={styles.app}>
       <AppHeader />
       <section className={styles.createYourBurger}>
+          <div className={styles.wrapper}>
         <section className={styles.ingridients}>
           <p className="text text_type_main-large">Соберите бургер</p>
-          <Tabs />
-          <DurgerIngredients />
         </section>
         <section className={styles.yourBurger}>
-          <BurgerConstructor />
+
+         <div>
+          <Tabs />
+          <DurgerIngredients />
+          </div> <BurgerConstructor />
         </section>
+          </div>
       </section>
     </div>
   );

@@ -1,3 +1,5 @@
+import styles from "./ingridientDitalis.module.css"; 
+
 function Ingridient(props) {
   return (
     <form>

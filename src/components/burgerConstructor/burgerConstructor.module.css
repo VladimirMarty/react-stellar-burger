@@ -1,0 +1,18 @@
+.constScroll {
+    height: 400px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.constScrollItem {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.constItems>:nth-child(1),
+.constItems>:last-child {
+    margin-left: 32px;
+}

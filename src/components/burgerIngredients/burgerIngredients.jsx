@@ -9,18 +9,18 @@ const DurgerIngredients = () => {
   const sauce = data.filter((item) => item.type === "sauce");
   const main = data.filter((item) => item.type === "main");
   return (
-    <section>
+    <section className={styles.product}>
       <div>
         <p className="text text_type_main-small">Булки</p>
-        <ul>
+        <ul className={styles.durgerStylesList}>
           {bun.map((item) => (
             <Ingridient item={item} />
           ))}
         </ul>
-      </div>
+      </div> 
       <div>
         <p className="text text_type_main-small">Соусы</p>
-        <ul>
+        <ul className={styles.durgerStylesList}>
          
           {sauce.map((item) => (
             <Ingridient item={item} />
@@ -29,7 +29,7 @@ const DurgerIngredients = () => {
       </div>
       <div>
         <p className="text text_type_main-small">Ингридиенты</p>
-        <ul>
+        <ul className={styles.durgerStylesList}>
          
           {main.map((item) => (
             <Ingridient item={item} />

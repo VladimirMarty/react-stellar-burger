@@ -1,7 +1,8 @@
+import styles from "./ingredients.module.css";
 import { CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 function IngredientDetales(props) {
   return (
-    <li>
+    <li className={styles.ingredients}>
       <img src={props.item.image} alt={props.item.name} />
       <div>
         <p>{props.item.price}</p>
