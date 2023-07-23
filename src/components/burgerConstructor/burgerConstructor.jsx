@@ -1,6 +1,9 @@
 import { Button } from "@ya.praktikum/react-developer-burger-ui-components";
 import styles from "./burgerConstructor.module.css";
 import { DragIcon } from "@ya.praktikum/react-developer-burger-ui-components";
+import DurgerIngredients from "../burgerIngredients/burgerIngredients";
+import {useState} from 'react';
+
 // import { ConstructorElement } from "@ya.praktikum/react-developer-burger-ui-components";
 
 // const BurgerConstructor = () => {
@@ -31,7 +34,11 @@ import { DragIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 
 // export default BurgerConstructor;
 import { ConstructorElement } from "@ya.praktikum/react-developer-burger-ui-components";
+import Modal from "../modal/modal";
+import OrderDetails from "../orderDetails/orderDetails";
+
 const BurgerConstructor = () => {
+  const [openModal, setOpenModal] = useState(false);
     const img = "https://code.s3.yandex.net/react/code/bun-02.png";
     return (
      <div>
@@ -46,7 +53,7 @@ const BurgerConstructor = () => {
           thumbnail={img}
           />
           </div>
-        <div className={styles.constScroll}>
+        <div className={styles.constScroll  +" custom-scroll"}>
        <div  className={styles.constScrollItem}> <DragIcon type="primary" />
         <ConstructorElement
           text="Краторная булка N-200i (верх)"
@@ -109,9 +116,11 @@ const BurgerConstructor = () => {
           />
           </div>
       </div>
-      <Button htmlType="button" type="primary" size="large">
+      <Button htmlType="button" type="primary" size="large"  onClick={() => setOpenModal(true)}>
   Оформить заказ
 </Button>
+
+<Modal open={openModal} onClose={() => setOpenModal(false)}  modalContent={<OrderDetails orderNumber='11111'/>}/>
       </div>
     )
   }

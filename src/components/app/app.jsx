@@ -12,6 +12,8 @@ import AppHeader from "../appHeader/appHeader";
 import BurgerConstructor from "../burgerConstructor/burgerConstructor";
 import Tabs from "../tabs/tabs";
 import DurgerIngredients from "../burgerIngredients/burgerIngredients";
+import {useState} from 'react';
+import Modal from "../modal/modal";
 
 // function App() {
 //   const img = "https://code.s3.yandex.net/react/code/bun-02.png";
@@ -91,6 +93,7 @@ import DurgerIngredients from "../burgerIngredients/burgerIngredients";
 
 // export default App;
 function App() {
+ 
   return (
     <div className={styles.app}>
       <AppHeader />
@@ -108,6 +111,9 @@ function App() {
         </section>
           </div>
       </section>
+
+      
+    
     </div>
   );
 }

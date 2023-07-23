@@ -2,20 +2,28 @@ import styles from "./burgerIngredients.module.css";
 import { data } from "../../utils/data";
 import React from "react";
 import Ingridient from "../ingredients/ingredients";
+import Modal from "../modal/modal";
+import { useState } from "react";
+
 
 
 const DurgerIngredients = () => {
+  const props3 = data.map(item => item);
+
   const bun = data.filter((item) => item.type === "bun");
   const sauce = data.filter((item) => item.type === "sauce");
   const main = data.filter((item) => item.type === "main");
+
   return (
-    <section className={styles.product}>
+    <section className={styles.product +" custom-scroll"}>
       <div>
         <p className="text text_type_main-small">Булки</p>
         <ul className={styles.durgerStylesList}>
           {bun.map((item) => (
-            <Ingridient item={item} />
+            <Ingridient item={item} 
+           />
           ))}
+   
         </ul>
       </div> 
       <div>
@@ -25,6 +33,7 @@ const DurgerIngredients = () => {
           {sauce.map((item) => (
             <Ingridient item={item} />
           ))}
+        
         </ul>
       </div>
       <div>
@@ -34,6 +43,7 @@ const DurgerIngredients = () => {
           {main.map((item) => (
             <Ingridient item={item} />
           ))}
+ 
         </ul>
       </div>
     </section>

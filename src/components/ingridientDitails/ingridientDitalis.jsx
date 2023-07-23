@@ -1,9 +1,11 @@
-import styles from "./ingridientDitalis.module.css"; 
+import styles from "./ingridientDitalis.module.css";
+import { data } from "../../utils/data";
 
-function Ingridient(props) {
+function Ingridient({ props }) {
+
   return (
     <form>
-           <p>{props.item.name}</p>
+      <p>{props.item.name}</p>
       <img src={props.item.image} alt={props.item.name} />
       <p>{props.item.name}</p>
       <div>
@@ -18,7 +20,6 @@ function Ingridient(props) {
       <div>
         <p>{props.item.carbohydrates}</p>
       </div>
-   
     </form>
   );
 }

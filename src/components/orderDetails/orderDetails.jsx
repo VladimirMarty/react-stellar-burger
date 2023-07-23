@@ -1,9 +1,9 @@
-function OrderDetails(orderNumber) {
-  const orderNumber = "034536";
+function OrderDetails({orderNumber}) {
+  const orderNumbers = orderNumber;
   return (
     <form>
       <div>
-        <h1>{orderNumber}</h1>
+        <h1>{orderNumbers}</h1>
         <p>идентификатор заказа</p>
         <img alt="Заказ подтверждён" />
         <p>Ваш заказ начали готовить</p>
