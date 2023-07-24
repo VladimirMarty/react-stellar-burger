@@ -13,6 +13,7 @@
 .constructorBurger {
     display: flex;
     align-items: center;
+    margin-right: 48px;
 }
 
 .orderFeed {
@@ -24,10 +25,3 @@
     display: flex;
     align-items: center;
 }
-
-
-/* 
-.header__button {
-    background: #1c1c21;
-    color: #fff;
-} */

@@ -1,21 +1,86 @@
 import React from "react";
+import { useEffect } from "react";
 import styles from "./modal.module.css";
-const Modal = ({ open, onClose,modalContent }) => {
- const aa =() =>{
-   
-    onClose()
- }
+import { createPortal } from "react-dom";
+import ModalOverlay from "../modal-overlay/modal-overlay";
 
-  return (
-    <div className={`${styles.overlay} ${open ? styles.active : ''}`}>
+
+
+const Modal = (props) => {
+  
+  const  onClose = () => {
+    props.setState(false);
+  }
+  React.useEffect(() => {
+    const handleEscClose = (evt) => {
+      evt.key === 'Escape' && onClose();
+    }
+
+    document.addEventListener('keydown', handleEscClose);
+
+    return () => {
+      document.removeEventListener('keydown', handleEscClose);
+    }
+  }, [])
+
+
+
+  return createPortal (
+    <>
+    
+    <div className={styles.over}>
       <div className={styles.modalContainer}>
-        <span onClick={aa} className={styles.closeX}>
+        <span onClick={onClose} className={styles.closeX}>
           &times;
         </span>
-        {modalContent}
+        {props.children}
       </div>
     </div>
+    <ModalOverlay onClick={onClose} />
+</>,
+   document.getElementById('root')
+
+
   );
 };
 
 export default Modal;
+
+
+// const Modal = ({ open, onClose, modalContent }) => {
+//   const aa = () => {
+//     onClose();
+//   };
+  
+
+
+//   useEffect(() => {
+//     const close = (e) => {
+//       if (e.keyCode === 27) {
+//         onClose();
+//       }
+//     };
+//     window.addEventListener("keydown", close);
+//     return () => window.removeEventListener("keydown", close);
+//   }, []);
+
+//   return createPortal (
+//     <>
+    
+//     <div className={`${styles.over} ${open ? styles.active : ""}`}>
+//       <div className={styles.modalContainer}>
+//         <span onClick={aa} className={styles.closeX}>
+//           &times;
+//         </span>
+//         {modalContent}
+//       </div>
+//     </div>
+//     <ModalOverlay onClick={onClose} />
+// </>,
+//    document.getElementById('root')
+
+
+//   );
+// };
+
+// export default Modal;

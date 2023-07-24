@@ -3,33 +3,38 @@ import Modal from "../modal/modal";
 import { useState } from "react";
 import { CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import OrderDetails from "../orderDetails/orderDetails";
-import Ingridient from "../ingridientDitails/ingridientDitalis";
-import { data } from "../../utils/data";
-function IngredientDetales(props2) {
-  const [openModal, setOpenModal] = useState(false);
 
+import { data } from "../../utils/data";
+import IngredientDetales from "../ingridientDitails/ingridientDitalis";
+function Ingredient(props2) {
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <>
       <li className={styles.ingredients} onClick={() => setOpenModal(true)}>
         <img src={props2.item.image} alt={props2.item.name} />
         <div>
-          <p>{props2.item.price}</p>
-          <CurrencyIcon type="primary"
-           />
+          <p className="text text_type_digits-default">{props2.item.price}</p>
+          <CurrencyIcon type="primary" />
         </div>
         <p>{props2.item.name}</p>
       </li>
-      <Modal
+   
+       {openModal &&
+        <Modal setState={setOpenModal} >
+         <IngredientDetales item={props2.item} />
+        </Modal>
+      }
+      {/* <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
-        // modalContent={Ingridient}
-      />
+        modalContent={<IngredientDetales item={props2.item} />}
+      /> */}
     </>
   );
 }
 
-export default IngredientDetales;
+export default Ingredient;
 
 // function Ingridient(props) {
 //   return (

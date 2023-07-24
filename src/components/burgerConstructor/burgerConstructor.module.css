@@ -16,3 +16,15 @@
 .constItems>:last-child {
     margin-left: 32px;
 }
+
+.final {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.foot {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}

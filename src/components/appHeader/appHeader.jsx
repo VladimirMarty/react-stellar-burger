@@ -11,12 +11,12 @@ const AppHeader = () => {
          <div className={styles.burgerLinks}>
           <div className={styles.constructorBurger}>
             <BurgerIcon type="primary" />
-            <a className={styles.header__button}>Конструктор</a>
+            <a >Конструктор</a>
           </div>
 
           <div className={styles.orderFeed}>
             <ListIcon type="secondary" />
-            <a className={styles.header__button}>Лента заказов</a>
+            <a className="text text_type_main-default text_color_inactive">Лента заказов</a>
           </div>
         </div>
 
@@ -24,7 +24,7 @@ const AppHeader = () => {
 
         <div className={styles.login}>
           <ProfileIcon type="secondary" />
-          <a className={styles.header__button}>Личный кабинет</a>
+          <a className="text text_type_main-default text_color_inactive">Личный кабинет</a>
         </div>
         </header>
       );
