@@ -1,0 +1,27 @@
+.header {
+    background-color: #1c1c21;
+    color: #f2f2f3;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.burgerLinks {
+    display: flex;
+}
+
+.constructorBurger {
+    display: flex;
+    align-items: center;
+    margin-right: 48px;
+}
+
+.orderFeed {
+    display: flex;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+}
