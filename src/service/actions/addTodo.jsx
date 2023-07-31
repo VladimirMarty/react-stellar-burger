@@ -1,0 +1,71 @@
+export const ADD_TODO = "ADD_TODO";
+
+export const ADD_INGREDIENT = "ADD_INGREDIENT";
+
+export const CHANGE_MODAL_VISIBLE = "CHANGE_MODAL_VISIBLE";
+export const CHANGE_SELECTED_MODAL = "CHANGE_SELECTED_MODAL";
+
+export const changeModalVisible = (hasVisible) => ({
+    type: CHANGE_MODAL_VISIBLE,
+    hasVisible: hasVisible
+  });
+  
+  export const changeSelectedVisible = ({
+    _id,
+    name,
+    typeIng,
+    proteins,
+    fat,
+    carbohydrates,
+    calories,
+    price,
+    image,
+    image_mobile,
+    image_large,
+  }) => ({
+    type: CHANGE_SELECTED_MODAL,
+    id: _id,
+    name: name,
+    typeIng: typeIng,
+    proteins: proteins,
+    fat: fat,
+    carbohydrates: carbohydrates,
+    calories: calories,
+    price: price,
+    image: image,
+    image_mobile: image_mobile,
+    image_large: image_large,
+  });
+
+export const addToDo = (text, expiresAt) => {
+  type: ADD_TODO;
+  text: text;
+  expiresAt: expiresAt;
+};
+
+export const addIngridient = ({
+  _id,
+  name,
+  typeIng,
+  proteins,
+  fat,
+  carbohydrates,
+  calories,
+  price,
+  image,
+  image_mobile,
+  image_large,
+}) => ({
+  type: ADD_INGREDIENT,
+  id: _id,
+  name: name,
+  typeIng: typeIng,
+  proteins: proteins,
+  fat: fat,
+  carbohydrates: carbohydrates,
+  calories: calories,
+  price: price,
+  image: image,
+  image_mobile: image_mobile,
+  image_large: image_large,
+});

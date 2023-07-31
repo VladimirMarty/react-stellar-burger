@@ -6,12 +6,36 @@ import OrderDetails from "../orderDetails/orderDetails";
 
 import { data } from "../../utils/data";
 import IngredientDetales from "../ingridientDitails/ingridientDitalis";
-function Ingredient(props2) {
-  const [openModal, setOpenModal] = useState(false);
 
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+  changeModalVisible,
+  changeSelectedVisible,
+} from "../../service/actions/addTodo";
+function Ingredient(props2) {
+  // const [openModal, setOpenModal] = useState(false);
+  const { openModal, selectedModal } = useSelector((store) => ({
+    openModal: store.mainState.hasVisible,
+    selectedModal: store.mainState.selectedModal,
+  }));
+
+  // Функция dispatch теперь доступна из хука внутри компонента
+  const dispatch = useDispatch();
+  const setOpenModal = (value) => {
+    // Отправляем экшен, используя переменную из хука React.useState
+    dispatch(changeModalVisible(true));
+    dispatch(changeSelectedVisible(value.item));
+  };
   return (
     <>
-      <li className={styles.ingredients} onClick={() => setOpenModal(true)}>
+      {openModal}
+      <li
+        className={styles.ingredients}
+        onClick={() => {
+          setOpenModal(props2);
+        }}
+      >
         <img src={props2.item.image} alt={props2.item.name} />
         <div>
           <p className="text text_type_digits-default">{props2.item.price}</p>
@@ -19,12 +43,11 @@ function Ingredient(props2) {
         </div>
         <p>{props2.item.name}</p>
       </li>
-   
-       {openModal &&
-        <Modal setState={setOpenModal} >
-         <IngredientDetales item={props2.item} />
+      {openModal && (
+        <Modal setState={setOpenModal}>
+          <IngredientDetales item={props2.item} />
         </Modal>
-      }
+      )}
       {/* <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}

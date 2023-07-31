@@ -3,56 +3,47 @@ import { useEffect } from "react";
 import styles from "./modal.module.css";
 import { createPortal } from "react-dom";
 import ModalOverlay from "../modal-overlay/modal-overlay";
-
-
-
+import { useDispatch } from "react-redux";
+import { changeModalVisible } from "../../service/actions/addTodo";
 const Modal = (props) => {
-  
-  const  onClose = () => {
-    props.setState(false);
-  }
+  const dispatch = useDispatch();
+  const onClose = () => {
+    dispatch(changeModalVisible(false));
+  };
   React.useEffect(() => {
     const handleEscClose = (evt) => {
-      evt.key === 'Escape' && onClose();
-    }
+      evt.key === "Escape" && onClose();
+    };
 
-    document.addEventListener('keydown', handleEscClose);
+    document.addEventListener("keydown", handleEscClose);
 
     return () => {
-      document.removeEventListener('keydown', handleEscClose);
-    }
-  }, [])
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, []);
 
-
-
-  return createPortal (
+  return createPortal(
     <>
-    
-    <div className={styles.over}>
-      <div className={styles.modalContainer}>
-        <span onClick={onClose} className={styles.closeX}>
-          &times;
-        </span>
-        {props.children}
+      <div className={styles.over}>
+        <div className={styles.modalContainer}>
+          <span onClick={onClose} className={styles.closeX}>
+            &times;
+          </span>
+          {props.children}
+        </div>
       </div>
-    </div>
-    <ModalOverlay onClick={onClose} />
-</>,
-   document.getElementById('root')
-
-
+      <ModalOverlay onClick={onClose} />
+    </>,
+    document.getElementById("root")
   );
 };
 
 export default Modal;
 
-
 // const Modal = ({ open, onClose, modalContent }) => {
 //   const aa = () => {
 //     onClose();
 //   };
-  
-
 
 //   useEffect(() => {
 //     const close = (e) => {
@@ -66,7 +57,7 @@ export default Modal;
 
 //   return createPortal (
 //     <>
-    
+
 //     <div className={`${styles.over} ${open ? styles.active : ""}`}>
 //       <div className={styles.modalContainer}>
 //         <span onClick={aa} className={styles.closeX}>
@@ -78,7 +69,6 @@ export default Modal;
 //     <ModalOverlay onClick={onClose} />
 // </>,
 //    document.getElementById('root')
-
 
 //   );
 // };

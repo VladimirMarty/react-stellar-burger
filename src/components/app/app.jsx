@@ -12,8 +12,11 @@ import AppHeader from "../appHeader/appHeader";
 import BurgerConstructor from "../burgerConstructor/burgerConstructor";
 import Tabs from "../tabs/tabs";
 import DurgerIngredients from "../burgerIngredients/burgerIngredients";
-import {useState} from 'react';
+import { useState } from "react";
 import Modal from "../modal/modal";
+import { connect } from "react-redux";
+import { addToDo } from "../../service/actions/addTodo";
+import { useSelector, useDispatch } from "react-redux";
 
 // function App() {
 //   const img = "https://code.s3.yandex.net/react/code/bun-02.png";
@@ -92,30 +95,37 @@ import Modal from "../modal/modal";
 // }
 
 // export default App;
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    addTodo: (text, expiresAt) => dispatch(addToDo(text, expiresAt)),
+  };
+};
+
+const mapStateToProps = (store, ownProps) => {
+  return {
+    todoList: store.todoList,
+  };
+};
 function App() {
- 
   return (
     <div className={styles.app}>
       <AppHeader />
       <section className={styles.createYourBurger}>
-          <div className={styles.wrapper}>
-        <section className={styles.ingridients}>
-          <p className="text text_type_main-large">Соберите бургер</p>
-        </section>
-        <section className={styles.yourBurger}>
-
-         <div>
-          <Tabs />
-          <DurgerIngredients />
-          </div> <BurgerConstructor />
-        </section>
-          </div>
+        <div className={styles.wrapper}>
+          <section className={styles.ingridients}>
+            <p className="text text_type_main-large">Соберите бургер</p>
+          </section>
+          <section className={styles.yourBurger}>
+            <div>
+              <Tabs />
+              <DurgerIngredients />
+            </div>{" "}
+            <BurgerConstructor />
+          </section>
+        </div>
       </section>
-
-      
-    
     </div>
   );
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
