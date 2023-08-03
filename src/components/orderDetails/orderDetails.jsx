@@ -1,6 +1,15 @@
 import styles from "./orderDetails.module.css";
+import { useSelector, useDispatch } from "react-redux";
 function OrderDetails({orderNumber}) {
   const orderNumbers = orderNumber;
+
+    // Функция dispatch теперь доступна из хука внутри компонента
+    const dispatch = useDispatch();
+    const setOpenModal = (value) => {
+      // Отправляем экшен, используя переменную из хука React.useState
+      dispatch(changeModalVisible(true));
+      dispatch(changeSelectedVisible(value.item));
+    };
   return (
     <form className={styles.form}>
       <div>

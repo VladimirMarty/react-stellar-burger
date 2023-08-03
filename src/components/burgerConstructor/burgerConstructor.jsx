@@ -46,12 +46,13 @@ const BurgerConstructor = () => {
   // Функция dispatch теперь доступна из хука внутри компонента
   const dispatch = useDispatch();
 
+  
   const { ingredientsList } = useSelector((store) => ({
     ingredientsList: store.ingredientsList,
   }));
 
   const [openModal, setOpenModal] = useState(false);
-  const img = "https://code.s3.yandex.net/react/code/bun-02.png";
+  // const img = "https://code.s3.yandex.net/react/code/bun-02.png";
   const onSubmit = () => {
     console.log("selectedIngridients", ingredientsList);
     // Отправляем экшен, используя переменную из хука React.useState
