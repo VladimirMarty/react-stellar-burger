@@ -5,14 +5,18 @@ import Ingridient from "../ingredients/ingredients";
 import Modal from "../modal/modal";
 import { useState } from "react";
 import IngredientDetales from "../ingridientDitails/ingridientDitalis";
-
-
+import alling from "../../service/reducers"
+import { useSelector } from "react-redux";
 const DurgerIngredients = () => {
 
-  
-  const bun = data.filter((item) => item.type === "bun");
-  const sauce = data.filter((item) => item.type === "sauce");
-  const main = data.filter((item) => item.type === "main");
+
+  const { allIng } = useSelector((store) => ({
+    allIng: store.mainState.allIng,
+  }));
+  console.log(allIng)
+  const bun = allIng.filter((item) => item.type === "bun");
+  const sauce = allIng.filter((item) => item.type === "sauce");
+  const main = allIng.filter((item) => item.type === "main");
 
   return (
     <section className={styles.product +" custom-scroll"}>

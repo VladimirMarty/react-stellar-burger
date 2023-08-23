@@ -46,6 +46,7 @@ function Ingredient(props2) {
       {openModal && (
         <Modal setState={setOpenModal}>
           <IngredientDetales item={props2.item} />
+          
         </Modal>
       )}
       {/* <Modal

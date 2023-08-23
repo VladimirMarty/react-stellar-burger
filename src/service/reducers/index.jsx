@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import * as constant from "../actions/addTodo";
-
+import { data } from "../../utils/data";
 // Исходное состояние
 export const initialState = [
   {
@@ -43,6 +43,7 @@ export const initialStateIngridients = [
 
 // Исходное состояние
 export const initialStateMain = {
+  allIng: data,
   hasVisible: false,
   selectedModal: null,
 };
@@ -113,9 +114,43 @@ const mainState = (state = initialStateMain, action) => {
   }
 };
 
+
+const mainState2 = (state = initialStateMain, action) => {
+  switch (action.type) {
+    // Добавление новой задачи в список дел
+    case constant.CHANGE_MODAL_VISIBLE:
+      return {
+        ...state,
+
+        hasVisible: action.hasVisible,
+      };
+
+    case constant.CHANGE_SELECTED_MODAL:
+      return {
+        ...state,
+
+        selectedModal: { ...action },
+      };
+
+    // Реакция на прочие типы экшенов
+    default:
+      return state;
+  }
+};
 // Корневой редьюсер
 export const rootReducer = combineReducers({
   todoList,
   ingredientsList,
   mainState,
+  mainState2
+
 });
+
+
+
+
+
+
+
+
+
