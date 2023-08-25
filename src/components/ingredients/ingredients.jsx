@@ -10,13 +10,13 @@ import IngredientDetales from "../ingridientDitails/ingridientDitalis";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-  changeModalVisible,
+  changeModalIng,
   changeSelectedVisible,
 } from "../../service/actions/addTodo";
 function Ingredient(props2) {
   // const [openModal, setOpenModal] = useState(false);
   const { openModal, selectedModal } = useSelector((store) => ({
-    openModal: store.mainState.hasVisible,
+    openModal: store.mainState.hasIngVisible,
     selectedModal: store.mainState.selectedModal,
   }));
 
@@ -24,7 +24,7 @@ function Ingredient(props2) {
   const dispatch = useDispatch();
   const setOpenModal = (value) => {
     // Отправляем экшен, используя переменную из хука React.useState
-    dispatch(changeModalVisible(true));
+    dispatch(changeModalIng(true));
     dispatch(changeSelectedVisible(value.item));
   };
   return (

@@ -9,9 +9,17 @@ export const CHANGE_SELECTED_MODAL = "CHANGE_SELECTED_MODAL";
 
 export const DELETE_INGRIDIENT = "DELETE_INGRIDIENT";
 
+
+export const CHANGE_MODAL_ING = "CHANGE_MODAL_ING";
+
 export const changeModalVisible = (hasVisible) => ({
   type: CHANGE_MODAL_VISIBLE,
   hasVisible: hasVisible,
+});
+
+export const changeModalIng = (hasIngVisible) => ({
+  type: CHANGE_MODAL_ING,
+  hasIngVisible: hasIngVisible,
 });
 
 export const changeSelectedVisible = ({

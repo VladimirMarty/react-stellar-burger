@@ -108,41 +108,27 @@ const mainState = (state = initialStateMain, action) => {
         selectedModal: { ...action },
       };
 
-    // Реакция на прочие типы экшенов
-    default:
-      return state;
-  }
-};
-
-
-const mainState2 = (state = initialStateMain, action) => {
-  switch (action.type) {
-    // Добавление новой задачи в список дел
-    case constant.CHANGE_MODAL_VISIBLE:
-      return {
-        ...state,
-
-        hasVisible: action.hasVisible,
-      };
-
-    case constant.CHANGE_SELECTED_MODAL:
-      return {
-        ...state,
-
-        selectedModal: { ...action },
-      };
+      case constant.CHANGE_MODAL_ING:
+        return {
+          ...state,
+  
+          hasIngVisible: action.hasIngVisible,
+        };
 
     // Реакция на прочие типы экшенов
     default:
       return state;
   }
 };
+
+
+
 // Корневой редьюсер
 export const rootReducer = combineReducers({
   todoList,
   ingredientsList,
   mainState,
-  mainState2
+
 
 });
 
