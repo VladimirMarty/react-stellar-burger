@@ -109,10 +109,11 @@ const mainState = (state = initialStateMain, action) => {
       };
 
       case constant.CHANGE_MODAL_ING:
+    
         return {
           ...state,
   
-          hasIngVisible: action.hasIngVisible,
+          modalIngredient: action.modalIngredient,
         };
 
     // Реакция на прочие типы экшенов

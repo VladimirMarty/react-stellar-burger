@@ -5,10 +5,12 @@ import { createPortal } from "react-dom";
 import ModalOverlay from "../modal-overlay/modal-overlay";
 import { useDispatch } from "react-redux";
 import { changeModalVisible } from "../../service/actions/addTodo";
+import { changeModalIng } from "../../service/actions/addTodo";
 const Modal = (props) => {
   const dispatch = useDispatch();
   const onClose = () => {
     dispatch(changeModalVisible(false));
+    dispatch(changeModalIng(null));
   };
   React.useEffect(() => {
     const handleEscClose = (evt) => {

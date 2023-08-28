@@ -17,9 +17,9 @@ export const changeModalVisible = (hasVisible) => ({
   hasVisible: hasVisible,
 });
 
-export const changeModalIng = (hasIngVisible) => ({
+export const changeModalIng = (ingredient) => ({
   type: CHANGE_MODAL_ING,
-  hasIngVisible: hasIngVisible,
+  modalIngredient: ingredient,
 });
 
 export const changeSelectedVisible = ({

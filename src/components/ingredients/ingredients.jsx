@@ -20,20 +20,20 @@ function Ingredient(props2) {
     selectedModal: store.mainState.selectedModal,
   }));
 
-  // Функция dispatch теперь доступна из хука внутри компонента
-  const dispatch = useDispatch();
-  const setOpenModal = (value) => {
-    // Отправляем экшен, используя переменную из хука React.useState
-    dispatch(changeModalIng(true));
-    dispatch(changeSelectedVisible(value.item));
-  };
+  // // Функция dispatch теперь доступна из хука внутри компонента
+  // const dispatch = useDispatch();
+  // const setOpenModal = (value) => {
+  //   // Отправляем экшен, используя переменную из хука React.useState
+  //   dispatch(changeModalIng(true));
+  //   dispatch(changeSelectedVisible(value.item));
+  // };
   return (
     <>
-      {openModal}
+      {/* {openModal} */}
       <li
         className={styles.ingredients}
         onClick={() => {
-          setOpenModal(props2);
+          props2.setOpenModal(props2);
         }}
       >
         <img src={props2.item.image} alt={props2.item.name} />
@@ -43,12 +43,12 @@ function Ingredient(props2) {
         </div>
         <p>{props2.item.name}</p>
       </li>
-      {openModal && (
+      {/* {openModal && (
         <Modal setState={setOpenModal}>
           <IngredientDetales item={props2.item} />
           
         </Modal>
-      )}
+      )} */}
       {/* <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
