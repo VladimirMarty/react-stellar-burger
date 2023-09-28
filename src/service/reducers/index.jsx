@@ -27,17 +27,103 @@ export const initialStateIngridients = [
     image_large: "https://code.s3.yandex.net/react/code/bun-02-large.png",
   },
   {
-    id: "60666c42cc7b410027a1a6b1",
-    name: "Краторная test",
-    typeIng: "main",
-    proteins: 80,
-    fat: 24,
-    carbohydrates: 53,
-    calories: 420,
-    price: 1255,
-    image: "https://code.s3.yandex.net/react/code/bun-02.png",
-    image_mobile: "https://code.s3.yandex.net/react/code/bun-02-mobile.png",
-    image_large: "https://code.s3.yandex.net/react/code/bun-02-large.png",
+    _id: "60666c42cc7b410027a1a9b8",
+    name: "Соус фирменный Space Sauce",
+    type: "sauce",
+    proteins: 50,
+    fat: 22,
+    carbohydrates: 11,
+    calories: 14,
+    price: 80,
+    image: "https://code.s3.yandex.net/react/code/sauce-04.png",
+    image_mobile: "https://code.s3.yandex.net/react/code/sauce-04-mobile.png",
+    image_large: "https://code.s3.yandex.net/react/code/sauce-04-large.png",
+    __v: 0,
+  },
+  {
+    _id: "60666c42cc7b410027a1a9be",
+    name: "Мини-салат Экзо-Плантаго",
+    type: "main",
+    proteins: 1,
+    fat: 2,
+    carbohydrates: 3,
+    calories: 6,
+    price: 4400,
+    image: "https://code.s3.yandex.net/react/code/salad.png",
+    image_mobile: "https://code.s3.yandex.net/react/code/salad-mobile.png",
+    image_large: "https://code.s3.yandex.net/react/code/salad-large.png",
+    __v: 0,
+  },
+  {
+    _id: "60666c42cc7b410027a1a9be",
+    name: "Мини-салат Экзо-Плантаго",
+    type: "main",
+    proteins: 1,
+    fat: 2,
+    carbohydrates: 3,
+    calories: 6,
+    price: 4400,
+    image: "https://code.s3.yandex.net/react/code/salad.png",
+    image_mobile: "https://code.s3.yandex.net/react/code/salad-mobile.png",
+    image_large: "https://code.s3.yandex.net/react/code/salad-large.png",
+    __v: 0,
+  },
+
+  {
+    _id: "60666c42cc7b410027a1a9b7",
+    name: "Соус Spicy-X",
+    type: "sauce",
+    proteins: 30,
+    fat: 20,
+    carbohydrates: 40,
+    calories: 30,
+    price: 90,
+    image: "https://code.s3.yandex.net/react/code/sauce-02.png",
+    image_mobile: "https://code.s3.yandex.net/react/code/sauce-02-mobile.png",
+    image_large: "https://code.s3.yandex.net/react/code/sauce-02-large.png",
+    __v: 0,
+  },
+  {
+    _id: "60666c42cc7b410027a1a9b7",
+    name: "Соус Spicy-X",
+    type: "sauce",
+    proteins: 30,
+    fat: 20,
+    carbohydrates: 40,
+    calories: 30,
+    price: 90,
+    image: "https://code.s3.yandex.net/react/code/sauce-02.png",
+    image_mobile: "https://code.s3.yandex.net/react/code/sauce-02-mobile.png",
+    image_large: "https://code.s3.yandex.net/react/code/sauce-02-large.png",
+    __v: 0,
+  },
+  {
+    _id: "60666c42cc7b410027a1a9b7",
+    name: "Соус Spicy-X",
+    type: "sauce",
+    proteins: 30,
+    fat: 20,
+    carbohydrates: 40,
+    calories: 30,
+    price: 90,
+    image: "https://code.s3.yandex.net/react/code/sauce-02.png",
+    image_mobile: "https://code.s3.yandex.net/react/code/sauce-02-mobile.png",
+    image_large: "https://code.s3.yandex.net/react/code/sauce-02-large.png",
+    __v: 0,
+  },
+  {
+    _id: "60666c42cc7b410027a1a9b7",
+    name: "Соус Spicy-X",
+    type: "sauce",
+    proteins: 30,
+    fat: 20,
+    carbohydrates: 40,
+    calories: 30,
+    price: 90,
+    image: "https://code.s3.yandex.net/react/code/sauce-02.png",
+    image_mobile: "https://code.s3.yandex.net/react/code/sauce-02-mobile.png",
+    image_large: "https://code.s3.yandex.net/react/code/sauce-02-large.png",
+    __v: 0,
   },
 ];
 
@@ -108,13 +194,12 @@ const mainState = (state = initialStateMain, action) => {
         selectedModal: { ...action },
       };
 
-      case constant.CHANGE_MODAL_ING:
-    
-        return {
-          ...state,
-  
-          modalIngredient: action.modalIngredient,
-        };
+    case constant.CHANGE_MODAL_ING:
+      return {
+        ...state,
+
+        modalIngredient: action.modalIngredient,
+      };
 
     // Реакция на прочие типы экшенов
     default:
@@ -122,22 +207,9 @@ const mainState = (state = initialStateMain, action) => {
   }
 };
 
-
-
 // Корневой редьюсер
 export const rootReducer = combineReducers({
   todoList,
   ingredientsList,
   mainState,
-
-
 });
-
-
-
-
-
-
-
-
-

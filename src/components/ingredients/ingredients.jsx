@@ -13,12 +13,16 @@ import {
   changeModalIng,
   changeSelectedVisible,
 } from "../../service/actions/addTodo";
+import { Counter } from "@ya.praktikum/react-developer-burger-ui-components";
 function Ingredient(props2) {
   // const [openModal, setOpenModal] = useState(false);
-  const { openModal, selectedModal } = useSelector((store) => ({
-    openModal: store.mainState.hasIngVisible,
-    selectedModal: store.mainState.selectedModal,
-  }));
+  const { openModal, selectedModal, ingredientsList } = useSelector(
+    (store) => ({
+      openModal: store.mainState.hasIngVisible,
+      selectedModal: store.mainState.selectedModal,
+      ingredientsList: store.ingredientsList,
+    })
+  );
 
   // // Функция dispatch теперь доступна из хука внутри компонента
   // const dispatch = useDispatch();
@@ -30,6 +34,7 @@ function Ingredient(props2) {
   return (
     <>
       {/* {openModal} */}
+
       <li
         className={styles.ingredients}
         onClick={() => {
@@ -38,6 +43,28 @@ function Ingredient(props2) {
       >
         <img src={props2.item.image} alt={props2.item.name} />
         <div>
+          <Counter
+            count={
+              ingredientsList?.filter((ing) => ing.name === props2.item.name)[0]
+                ?.typeIng === "bun"
+                ? 2
+                : ingredientsList?.filter(
+                    (ing) => ing.name === props2.item.name
+                  ).length
+            }
+            size="default"
+            extraClass="m-1"
+            className="couner"
+          />
+          <style>
+            {
+              "\
+           .counter{\
+          position: relative\
+            }\
+          "
+            }
+          </style>
           <p className="text text_type_digits-default">{props2.item.price}</p>
           <CurrencyIcon type="primary" />
         </div>
